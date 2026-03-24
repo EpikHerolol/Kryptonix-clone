@@ -21,12 +21,12 @@ html{
     align-items: center;
     justify-content: space-between;
 }
-.leftmenu>ul, .rightmenu>ul, .lowernav>ul{
+.leftmenu, .rightmenu, .lowernav ul{
     display: flex;
     list-style-type: none;
     
 }
-.leftmenu>ul>li, .rightmenu>ul>li, .lowernav>ul>li {
+.leftmenu li, .rightmenu li, .lowernav li {
     font-size: 22px;
     font-weight: 1000;
     line-height: 20px;
@@ -45,16 +45,17 @@ html{
     top:0;
     background-color: rgb(255, 255, 255);
     z-index: 1000 ;
+    border-bottom: 3px solid var(--w);
 
 }
-.lowernav>ul{
+.lowernav ul{
     justify-content: center;
 }
 
-.lowernav>ul>li{
+.lowernav li{
     margin: 15px 20px;     
 }
-.lowernav>ul>li:hover{
+.lowernav li:hover{
     color: var(--o);
 }
 .mainhead{
@@ -70,7 +71,7 @@ html{
     align-items: center;
     text-align: center;
     gap: 80px;
-    
+    cursor: pointer;
 }
 .mainhead   .mainline >h1{
     color: #FFFFFF;
@@ -228,7 +229,6 @@ h1{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     max-width: 1500px;
-    /* justify-content: center; */
     justify-items: center;
     gap: 20px;
     width: 100%;
@@ -390,6 +390,8 @@ font-size: 1.2rem;
     justify-content: space-around;
     padding-bottom: 100px;
     border-bottom: #ffffff dotted 1px;
+    max-width: 1550px;
+    margin: 0 auto;
 
 }
 
@@ -401,50 +403,76 @@ font-size: 1.2rem;
     border-radius: 20px;
     justify-content: space-between;
     padding: 2em;
+    gap: 10px;
 }
 
 
 
-.amazoncard .cardimg{
-    height: 50%;
+.cardimg{
+    height: 270px;
     width: auto;
     align-self: center;
+    overflow: hidden;
 }
-.amazoncard .cardimg img{
+.cardimg img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
+@keyframes zoomFlicker {
+    0%   { transform: scale(1); opacity: 0.8; }
+    25%  {  opacity: 0.4; }
+    50%  {  opacity: 0.8; }
+    75%  {  opacity: 1; }
+    /* 80%  { transform: scale(1.08);} */
+    100% { transform: scale(1.08);}
+}
 
-.amazoncard .cardhead{
+@keyframes zoomFlickerReverse {
+    0%   { transform: scale(1.08);pacity: 0.8}
+    25%  {  opacity: 0.4; }
+    50%  {  opacity: 0.8; }
+    75%  {  opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+.cardimg_hover {
+    animation: zoomFlicker 0.8s linear forwards;
+}
+
+.cardimg_leave {
+    animation: zoomFlickerReverse 0.8s ease forwards;
+}
+
+.cardhead{
     color: gray;
     font-weight: 600;
 }
 
-.amazoncard .imgdesc{
+.imgdesc{
     display: flex;
     flex-direction: column;
     gap: 0.7em;
     margin: 1.5em 0;
 }
-.amazoncard .imgdesc :nth-child(3){
+.imgdesc :nth-child(3){
     text-decoration:line-through;
     font-size: 1.2em;
     font-weight: 600;
     color: gray;
 }
-.amazoncard .imgdesc :nth-child(1){
+.imgdesc :nth-child(1){
     font-weight: 600;
     font-size: 1.5em;
 }
-.amazoncard .imgdesc :nth-child(2){
+.imgdesc :nth-child(2){
     font-weight: 600;
     font-size: 1.5em;
     color: var(--o);
 }
 
 
-.amazoncard .buttons{
+.buttons{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -453,20 +481,29 @@ font-size: 1.2rem;
 }
 
 
-.buttons .imgbtn1{
+.imgbtn1{
     background-color: #7FD07E;
     color: white;
     border-radius: 10px;
     border: none;
     font-size: 1.3rem;
     font-weight: bold;
-    width: 50%;
+    width: 55%;
     height: 2rem;
-    text-align: left;
-    padding: 0 2rem;  
+    text-align: center;
+    padding: 0 1.5rem;  
     cursor:pointer;  
 }
-.buttons .imgbtn2{
+
+.imgbtn1_txt{
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+.change{
+    opacity: 0;
+}
+
+.imgbtn2{
     background-color: black;
     color: white;
     border-radius: 10px;
