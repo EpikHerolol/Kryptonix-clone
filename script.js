@@ -31,3 +31,27 @@ amazonCards.forEach(card =>{
         },200);
     });
 });
+
+
+const loginSvg = document.getElementById("login_hover");
+const loginPage = document.getElementById("login");
+const loginIcon = loginSvg.querySelector("svg");
+loginSvg.addEventListener("click", (e) => {
+    e.stopPropagation(); 
+    if(loginPage.style.visibility === "visible"){
+        loginPage.style.visibility = "hidden";  
+        loginIcon.classList.remove("orange");
+    }
+    else{
+        loginPage.style.visibility = "visible";
+        loginIcon.classList.add("orange");
+    }
+    
+});
+loginPage.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
+document.addEventListener("click", () => {
+    loginIcon.classList.remove("orange");
+    loginPage.style.visibility = "hidden";
+});
