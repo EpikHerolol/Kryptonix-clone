@@ -1,4 +1,4 @@
-# Kryptonix 🖥️
+# React + Vite
 
 A front-end clone of **Kryptonix** — a PC parts marketplace. Built as a personal project to practice frontend development through real-world UI replication. Recently migrated from vanilla HTML/CSS/JS to **React + Vite**.
 
