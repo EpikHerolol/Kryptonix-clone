@@ -22,7 +22,10 @@ import { useState } from "react"
 function App() {
   // State to control whether the sidebar (cart panel) is open or not
   const [panelOpen, setPanelOpen] = useState(false)
+  // State to store items added to the cart
   const [cart, setCart] = useState([])
+  
+  // Function to add an item to the cart
 
   const addToCart = (item) => {
     const alreadyInCart = cart.find(i => i.id === item.id)
@@ -44,14 +47,17 @@ function App() {
   }, 0)
   return (
     <>
+      {/* Top header with cart button */}
       <Header setPanelOpen={setPanelOpen} />
       <Navbar />
       <Hero />
       <Banner />
       <Videobanner />
+      {/* Sidebar (shopping cart panel) */}
       <Sidebar cart={cart} removeFromCart={removeFromCart} total={total} panelOpen={panelOpen} setPanelOpen={setPanelOpen} />
-
+      {/* Image grid section */}
       <Images></Images>
+      {/* Product section (blue background) */}
       <article className="bluearea">
         <Blueupper />
         <div className="blue_mid">
@@ -61,8 +67,11 @@ function App() {
           <Amazoncard img={product4} name="MSI MAG 255F E20 25 INCH FHD Gaming Monitor" newPrice="₹9,490.00" oldPrice="₹12,999.00" emi="₹1242" addToCart={addToCart} id="4"/>
         </div>
       </article>
+      {/* Clients/brands section */}
       <Clients />
+      {/* Customer reviews section */}
       <Customer />
+      {/* Footer */}
       <Footer />
     </>
   )
