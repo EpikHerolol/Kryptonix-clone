@@ -1,3 +1,4 @@
+// Importing all required components for the layout
 import Header from "./components/Header"
 import Hero from "./components/hero"
 import Banner from "./components/Banner"
@@ -6,17 +7,20 @@ import Videobanner from "./components/Videobanner"
 import Images from "./components/Images"
 import Blueupper from "./components/Blueupper"
 import Amazoncard from "./components/Amazoncard"
-import product1 from './assets/images/products/product1.webp'
-import product2 from './assets/images/products/product2.webp'
-import product3 from './assets/images/products/product3.webp'
-import product4 from './assets/images/products/product4.webp'
 import Clients from "./components/Clients"
 import Customer from "./components/Customer"
 import Footer from "./components/Footer"
 import Sidebar from "./components/Sidebar"
+// Importing product images
+import product1 from './assets/images/products/product1.webp'
+import product2 from './assets/images/products/product2.webp'
+import product3 from './assets/images/products/product3.webp'
+import product4 from './assets/images/products/product4.webp'
+// React hook for managing state
 import { useState } from "react"
 
 function App() {
+  // State to control whether the sidebar (cart panel) is open or not
   const [panelOpen, setPanelOpen] = useState(false)
   const [cart, setCart] = useState([])
 
